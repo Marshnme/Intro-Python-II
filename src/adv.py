@@ -1,5 +1,5 @@
 from room import Room
-
+from player import Player
 # Declare all the rooms
 
 room = {
@@ -22,6 +22,7 @@ earlier adventurers. The only exit is to the south."""),
 }
 
 
+
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
@@ -38,7 +39,8 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-
+Player_one = Player("Joshua",'outside')
+# print(Player_one.current_room)
 # Write a loop that:
 #
 # * Prints the current room name
@@ -49,3 +51,59 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+
+while True:
+    curr_room = Player_one.current_room
+    print(room[curr_room])
+    user_input = input("What do you wish to do?(Move via N,S,W,E, or q)")
+    # # OUTSIDE paths
+    if Player_one.current_room == 'outside':
+        if user_input == "N":
+            Player_one.current_room = 'foyer'
+        elif user_input == "q":
+            break
+        elif user_input != "N":
+            print("Foward only")
+    elif Player_one.current_room == 'foyer':
+        if user_input == "S":
+            Player_one.current_room = 'outside'
+        elif user_input == "N":
+            Player_one.current_room = 'overlook'
+        elif user_input == "E":
+            Player_one.current_room = 'narrow'
+        elif user_input == "q":
+            break
+        elif user_input != "N" or "S" or "E":
+            print("Not a path")
+    elif Player_one.current_room == 'overlook':
+        if user_input == "S":
+            Player_one.current_room = 'foyer'
+        elif user_input == "q":
+            break
+        elif user_input != "S":
+            print("Not a path")
+    elif Player_one.current_room == 'narrow':
+        if user_input == "W":
+            Player_one.current_room = 'foyer'
+        elif user_input == "N":
+            Player_one.current_room = 'treasure'
+        elif user_input == "q":
+            break
+        elif user_input != "W" or "N":
+            print("Not a path")
+    elif Player_one.current_room == 'treasure':
+        if user_input == "S":
+            Player_one.current_room = 'narrow'
+        elif user_input == "q":
+            break
+        elif user_input != "S":
+            print("Not a path")
+    
+    
+    
+    
+
+
+
+
