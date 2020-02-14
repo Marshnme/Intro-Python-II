@@ -45,8 +45,9 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-Player_one = Player("Joshua",'outside')
-# print(Player_one.current_room)
+Player_one = Player("Joshua",'outside',"empty")
+print(Player_one.gear)
+# print(Player_one.current_room.item)
 # Write a loop that:
 #
 # * Prints the current room name
@@ -69,6 +70,9 @@ while True:
             Player_one.current_room = 'foyer'
         elif user_input == "q":
             break
+        elif user_input == "take":
+            Player_one.item = room[curr_room].item
+            print(Player_one.item)
         elif user_input != "N":
             print("Foward only")
     elif Player_one.current_room == 'foyer':
