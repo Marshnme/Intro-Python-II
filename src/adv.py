@@ -59,10 +59,7 @@ Player_one = Player("Joshua",room['outside'],)
 
 print(Player_one.current_room)
 while True:
-    # for x in Player_one.gear:
-    #     
-    print(f"current inventory: {Player_one.gear}")
-    print("N,S,W,E, or Q are valid inputs")
+    print("N,S,W,E for movement. I for inventory. Q to quit.")
     cmd = input("-> ").lower()
     if cmd in ["n", "s", "e", "w"]:
         # Move to that room
@@ -70,11 +67,15 @@ while True:
     elif cmd in ["take"]:
         Player_one.take_item(Player_one.current_room.item)
         # stores item in player inv.removes from room.
+        print(f"current inventory: {Player_one.gear}")
         print(Player_one.current_room)
     elif cmd in ["drop"]:
         Player_one.drop_item(Player_one.gear)
+        print(f"current inventory: {Player_one.gear}")
         print(Player_one.current_room)
         # drops item from player inv.drops in room.
+    elif cmd in ["i"]:
+        print(f"current inventory: {Player_one.gear}")
     elif cmd == "q":
         print("Goodbye!")
         exit()

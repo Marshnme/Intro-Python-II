@@ -22,5 +22,5 @@ class Player:
         print(f"You drop {self.gear}")
         self.gear = []
         
-        print(f"You dropped the {self.current_room.item}")
+        
 
