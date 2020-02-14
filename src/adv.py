@@ -42,7 +42,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-Player_one = Player("Joshua",room['outside'],"empty")
+Player_one = Player("Joshua",room['outside'],)
 # print(Player_one.gear)
 # print(Player_one.current_room.item)
 # Write a loop that:
@@ -59,6 +59,8 @@ Player_one = Player("Joshua",room['outside'],"empty")
 
 print(Player_one.current_room)
 while True:
+    # for x in Player_one.gear:
+    #     
     print(f"current inventory: {Player_one.gear}")
     print("N,S,W,E, or Q are valid inputs")
     cmd = input("-> ").lower()

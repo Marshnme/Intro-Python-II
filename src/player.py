@@ -14,12 +14,13 @@ class Player:
         else:
             print("You cannot move in that direction")
     def take_item(self,item):
-        self.gear.append(item)
-        self.current_room.item.remove(item)
-        print(f"You aquire the {self.gear}")
+        self.gear = self.gear + self.current_room.item
+        print(f"You aquire the {item}")
+        self.current_room.item = []
     def drop_item(self,item):
-        self.current_room.item = self.gear
-        self.gear = "empty"
+        self.current_room.item = self.gear + self.current_room.item
+        print(f"You drop {self.gear}")
+        self.gear = []
         
         print(f"You dropped the {self.current_room.item}")
 
